@@ -21,15 +21,15 @@ var getRepoIssues = function(repo) {
 	fetch(apiUrl).then(function(response) {
 		// request was successful
 		if (response.ok) {
-		  response.json().then(function(data) {
-			// pass response data to dom function
-			displayIssues(data);
+			response.json().then(function(data) {
+				// pass response data to dom function
+				displayIssues(data);
 
-			// check if api has paginated issues
-			if (response.headers.get("Link")) {
-				displayWarning(repo);
-			}
-		  });
+				// check if api has paginated issues
+				if (response.headers.get("Link")) {
+					displayWarning(repo);
+				}
+			});
 		}
 		else {
 			// if not successful, redirect to homepage
